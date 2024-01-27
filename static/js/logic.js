@@ -69,6 +69,7 @@ function createMarkers(data) {
                 fillOpacity: 0.5,
                 radius: element.properties.mag * 20000
             });
+            // Add a popup with some details and link to the USGS site for this record
             circle.bindPopup(`
                 <h3>${element.properties.title}</h3><hr/>
                 <text>${new Date(element.properties.time)}</text><br/>
