@@ -20,10 +20,6 @@ function init_map() {
         zoom: 8
     });
 
-    // Create a layer control that contains our baseMaps and overlayMaps, and add them to the map.
-    // street.addTo(myMap);
-    // stateGroup.addTo(myMap);
-
     L.control.layers(baseMaps).addTo(map);
 
     return map;
@@ -66,11 +62,19 @@ function createMarkers(data) {
         let point = element.geometry;
         // Check for the location property.
         if (point) {
+            // Create a circle Marker for each Earthquake on it's coordinates
+            // Use the depth to dictate color scale and magnitude for radius
             let circle = L.circle([point.coordinates[1], point.coordinates[0]], {
                 color: colorScale[getDepthLevel(point.coordinates[2])],
                 fillOpacity: 0.5,
                 radius: element.properties.mag * 20000
             });
+            circle.bindPopup(`
+                <h3>${element.properties.title}</h3><hr/>
+                <text>${new Date(element.properties.time)}</text><br/>
+                <text><b>Magnitude:</b> ${element.properties.mag} <b>Depth:</b> ${point.coordinates[2]}</text></br>
+                <b><a href="${element.properties.url}" target="blank">Detail</a></b>
+            `);
             circle.addTo(myMap);
         };
     });
