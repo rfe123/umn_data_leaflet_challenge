@@ -1,12 +1,33 @@
-body {
-  padding: 0;
+body, html {
+  height: 100%;
   margin: 0;
+  padding: 0;
 }
 
-#map,
-body,
-html {
+.container {
+  width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#map {
+  width: 80%; /* Adjust as needed */
+  height: 80vh; /* Adjust as needed */
+  border: 1px solid #ccc;
+}
+
+.header {
+  background-color: #F1F1F1;
+  text-align: center;
+  padding: 20px;
+}
+
+.footer {
+  background-color: #F1F1F1;
+  text-align: center;
+  padding: 10px;
 }
 
 /* add styles for leaflet legend */
