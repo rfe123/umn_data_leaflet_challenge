@@ -8,3 +8,24 @@ body,
 html {
   height: 100%;
 }
+
+/* add styles for leaflet legend */
+.legend {
+  background-color: white;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  font-size: 12px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+}
+
+.legend i {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  display: inline-block;
+}
