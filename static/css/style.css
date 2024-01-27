@@ -13,8 +13,8 @@ body, html {
 }
 
 #map {
-  width: 80%; /* Adjust as needed */
-  height: 80vh; /* Adjust as needed */
+  width: 95%; /* Adjust as needed */
+  height: 90vh; /* Adjust as needed */
   border: 1px solid #ccc;
 }
 
