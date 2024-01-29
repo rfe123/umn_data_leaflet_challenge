@@ -73,7 +73,7 @@ function createMarkers(data) {
             circle.bindPopup(`
                 <h3>${element.properties.title}</h3><hr/>
                 <text>${new Date(element.properties.time)}</text><br/>
-                <text><b>Magnitude:</b> ${element.properties.mag} <b>Depth:</b> ${point.coordinates[2]}</text></br>
+                <text><b>Magnitude:</b> ${element.properties.mag} <b>Depth (km):</b> ${point.coordinates[2]}</text></br>
                 <b><a href="${element.properties.url}" target="blank">Detail</a></b>
             `);
             circle.addTo(myMap);
@@ -86,6 +86,7 @@ function createMarkers(data) {
     // Define the contents of the legend
     legend.onAdd = function (map) {
         var div = L.DomUtil.create('div', 'info legend');
+        div.innerHTML = '<p><b>Depth (km)</b></p><hr/>'
 
         // Loop through depthLevels and add corresponding color and label
         for (var i = 0; i < depthLabels.length; i++) {
@@ -102,7 +103,7 @@ function createMarkers(data) {
 
 }
 
-let geoJsonData = d3.json('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson');
+let geoJsonData = d3.json('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson');
 
 geoJsonData.then(function (data) {
     console.log(data);
